@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How long to watch...</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="vh-100 d-flex flex-column">
+  <header>
+    <nav class="navbar bg-secondary p-3 navbar-expand-sm justify-content-between" data-bs-theme="dark">
+      <a href="#" class="navbar-brand">
+        <h1>How long to watch...</h1>
+      </a>
+      <ul class="navbar-nav" id="nav-list">
+        <li class="nav-item">
+          <a href="#" class="nav-link active nav-daily-goal">Daily Goal</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link nav-finish-date">Finish Date</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="bg-light flex-grow-1 p-5">
+    <div class="container text-center" id="section-daily-goal">
+      <div class="row justify-content-center">
+        <h2>Watch show are you planning on watching?</h2>
+        <div class="col-sm-6 p-3 mb-3">
+          <input type="search" class="form-control" id="search-daily-goal">
+          <div class="position-relative">
+            <ul class="list-group position-absolute bg-white w-100 overflow-y-auto" id="results-list-daily-goal">
+              <!-- <li class="list-group-item gx-0 d-flex row p-2" data-id="">
+                <div class="col-8 d-flex flex-column align-items-start">
+                  <h3 class="m-0 h5">Name</h3>
+                  <p class="h6 text-secondary">(0000)</p>
+                </div>
+                <div class="col-4">
+                  <img src="https://upload.wikimedia.org/wikipedia/pt/3/32/Outlander_-_Season_7_-_Poster.jpg" alt="poster" height="100px" class="float-end">
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        <h2>How much do you want to watch per day?</h2>
+        <div class="row col-sm-6 justify-content-center p-3 row-gap-2">
+          <div class="col-auto">
+            <input type="number" class="form-control" id="input-daily-goal">
+          </div>
+          <div class="col-auto">
+            <select class="form-select" id="select">
+              <option value="minutes">minutes</option>
+              <option value="episodes">episodes</option>
+            </select>
+          </div>
+        </div>
+        <div class="p-3">
+          <button class="btn btn-primary btn-lg" type="button" id="btn-calculate-daily-goal">Calculate</button>
+        </div>
+        <div class="mt-5">
+          <p class="fs-5">Or check how much you need to watch per day to finish by a certain date</p>
+          <button class="btn btn-secondary btn-switch" type="button">Set finish date</button>
+        </div>
+      </div>
+    </div>
+    <div class="container text-center d-none" id="section-finish-date">
+      <div class="row justify-content-center">
+        <h2>Watch show are you planning on watching?</h2>
+        <div class="col-sm-6 p-3 mb-3">
+          <input type="search" class="form-control" id="search-finish-date">
+          <div class="position-relative">
+            <ul class="list-group position-absolute bg-white w-100 overflow-y-auto" id="results-list-finish-date">
+              <!-- <li class="list-group-item gx-0 d-flex row p-2" data-id="">
+                <div class="col-8 d-flex flex-column align-items-start">
+                  <h3 class="m-0 h5">Name</h3>
+                  <p class="h6 text-secondary">(0000)</p>
+                </div>
+                <div class="col-4">
+                  <img src="https://upload.wikimedia.org/wikipedia/pt/3/32/Outlander_-_Season_7_-_Poster.jpg" alt="poster" height="100px" class="float-end">
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        <h2>When do you want to finish it?</h2>
+        <div class="row col-sm-6 justify-content-center p-3 row-gap-2">
+          <div class="col-auto">
+            <input type="date" class="form-control" id="input-finish-date">
+          </div>
+        </div>
+        <div class="p-3">
+          <button class="btn btn-primary btn-lg" type="button" id="btn-calculate-finish-date">Calculate</button>
+        </div>
+        <div class="mt-5">
+          <p class="fs-5">Or check when you will finish it by setting a daily goal</p>
+          <button class="btn btn-secondary btn-switch" type="button">Set daily goal</button>
+        </div>
+      </div>
+    </div>
+    <div class="container text-center d-none" id="section-result">
+      <!-- <div class="row justify-content-center">
+        <div class="row align-items-center row-gap-4 column-gap-4">
+          <p class="col h2">You will finish all <span class="text-primary">x seasons</span> and <span class="text-primary">y episodes</span> of <span class="h1 text-primary">Breaking Bad</span> by <span class="text-primary">11/11/2025</span> if you watch <span class="text-primary">40 minutes</span> per day</p>
+          <div class="col-md-4 col-xxl-3 bg-secondary-subtle rounded-1 text-center g-0 p-3">
+            <img src="https://m.media-amazon.com/images/I/71NGALrGoJL._UF1000,1000_QL80_.jpg" alt="" class="w-100 rounded-1">
+            <p class="fs-5 mt-3 mb-0">episode length: 50m</p>
+          </div>
+        </div>
+        <div class="mt-5">
+          <p class="fs-5">Try calculating another show!</p>
+          <button class="btn btn-secondary btn-again" type="button">Calculate again</button>
+        </div>
+      </div> -->
+    </div>
+  </main>
+  <footer class="bg-dark">
+    <a href="https://www.tvmaze.com/">
+      <img src="https://static.tvmaze.com/images/tvm-header-logo.png" alt="TV Maze logo" height="30px" class="mx-auto d-block m-3">
+    </a>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body> 
+</html>
