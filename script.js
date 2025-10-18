@@ -166,18 +166,19 @@ btnCalcFinishDate.addEventListener('click', async () => {
   const episodes =  await fetch(`https://api.tvmaze.com/shows/${currShowId}/episodes`).then(res => res.json()).catch(err => alert(errMessageCalc));
   const seasons =  await fetch(`https://api.tvmaze.com/shows/${currShowId}/seasons`).then(res => res.json()).catch(err => alert(errMessageCalc));
   const today = new Date();
-  const finishDateValue = inputFinishDate.valueAsDate;
+  const finishDate = inputFinishDate.value;
+  const date = new Date(finishDate.replace(/-/g, '/'));
   const runtime = details.averageRuntime ? details.averageRuntime : details.runtime;
   const totalRuntime = runtime * episodes.length;
 
-  const daysToFinish = Math.ceil((Number(finishDateValue) - Number(today)) / (1000 * 60 * 60 * 24));
+  const daysToFinish = Math.ceil((Number(date) - Number(today)) / (1000 * 60 * 60 * 24));
   const episodesGoal = (episodes.length / daysToFinish).toFixed(1);
   const minutesGoal = Math.ceil(totalRuntime / daysToFinish);
 
   const html = `
     <div class="row justify-content-center">
       <div class="row align-items-center row-gap-4 column-gap-4">
-        <p class="col h2">You need to watch <span class="text-primary">${minutesGoal} minutes</span> or <span class="text-primary">${episodesGoal} episodes</span> of <span class="h1 text-primary">${details.name}</span> per day to finish the show by <span class="text-primary">${String(finishDateValue.getDate()).padStart(2, '0')}/${String(finishDateValue.getMonth() + 1).padStart(2, '0')}/${finishDateValue.getFullYear()}</span></p>
+        <p class="col h2">You need to watch <span class="text-primary">${minutesGoal} minutes</span> or <span class="text-primary">${episodesGoal} episodes</span> of <span class="h1 text-primary">${details.name}</span> per day to finish the show by <span class="text-primary">${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}</span></p>
         <div class="row col-md-4 col-xxl-3 bg-secondary-subtle rounded-1 text-center g-0 p-3 row-gap-3">
           <img src="${details.image ? details.image?.medium : details.image?.original}" alt="" class="w-100 rounded-1">
           <p class="fs-5 my-0">episode length: ${details.runtime ? details.runtime : (details.averageRuntime ? details.averageRuntime : '0')}m</p>
